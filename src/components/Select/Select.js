@@ -31,7 +31,7 @@ const Wrapper = styled.label`
   display: flex;
   align-items: baseline;
 
-  @media (max-width: ${BREAKPOINTS.laptop}) {
+  @media (max-width: ${BREAKPOINTS.tablet}) {
     display: none;
   }
 `;

@@ -59,7 +59,7 @@ const MainHeader = styled.div`
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
 
-  @media (max-width: ${BREAKPOINTS.laptop}) {
+  @media (max-width: ${BREAKPOINTS.tablet}) {
     border-top: 8px solid ${COLORS.gray[900]};
     gap: 32px;
     justify-content: space-between;
@@ -75,7 +75,7 @@ const Nav = styled.nav`
   gap: 48px;
   margin: 0px 48px;
 
-  @media (max-width: ${BREAKPOINTS.laptop}) {
+  @media (max-width: ${BREAKPOINTS.tablet}) {
     display: none;
   }
 `;
@@ -96,7 +96,7 @@ const MobileNav = styled.nav`
   display: none;
   gap: 32px;
 
-  @media (max-width: ${BREAKPOINTS.laptop}) {
+  @media (max-width: ${BREAKPOINTS.tablet}) {
     display: flex;
   }
 
@@ -108,7 +108,7 @@ const MobileNav = styled.nav`
 const LogoWrapper = styled.div`
   flex: 1;
 
-  @media (max-width: ${BREAKPOINTS.laptop}) {
+  @media (max-width: ${BREAKPOINTS.tablet}) {
     flex: revert;
   }
 `;
@@ -116,7 +116,7 @@ const LogoWrapper = styled.div`
 const Filler = styled.div`
   flex: 1;
 
-  @media (max-width: ${BREAKPOINTS.laptop}) {
+  @media (max-width: ${BREAKPOINTS.tablet}) {
     display: none;
   }
 `;

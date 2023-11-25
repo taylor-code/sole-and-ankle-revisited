@@ -33,7 +33,7 @@ const Wrapper = styled.div`
   padding-left: 32px;
   padding-right: 32px;
 
-  @media (max-width: ${BREAKPOINTS.laptop}) {
+  @media (max-width: ${BREAKPOINTS.tablet}) {
     display: none;
   }
 `;

@@ -24,7 +24,7 @@ const Sidebar = () => {
 };
 
 const Wrapper = styled.aside`
-  @media (max-width: ${BREAKPOINTS.laptop}) {
+  @media (max-width: ${BREAKPOINTS.tablet}) {
     display: none;
   }
 `;
