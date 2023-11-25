@@ -20,7 +20,7 @@ export const WEIGHTS = {
 const PX_TO_REM = 16;
 
 export const BREAKPOINTS = {
-  mobile: 600 / PX_TO_REM, // 0-600px
-  tablet: 950 / PX_TO_REM, //600-950px
-  laptop: 1300 / PX_TO_REM // 950-1300px
+  mobile: `${600 / PX_TO_REM}rem`, // 0-600px
+  tablet: `${950 / PX_TO_REM}rem`, // 600-950px
+  laptop: `${1300 / PX_TO_REM}rem` // 950-1300px
 };
