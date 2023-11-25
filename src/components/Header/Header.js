@@ -5,6 +5,8 @@ import { BREAKPOINTS, COLORS, WEIGHTS } from '../../constants';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
+import Icon from '../Icon';
+import UnstyledButton from '../UnstyledButton';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -21,6 +23,13 @@ const Header = () => {
         <Side>
           <Logo />
         </Side>
+        <MobileNav>
+          <Icon id="shopping-bag" />
+          <Icon id="search" />
+          <UnstyledButton onClick={() => setShowMobileMenu(true)}>
+            <Icon id="menu" />
+          </UnstyledButton>
+        </MobileNav>
         <Nav>
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
@@ -49,6 +58,7 @@ const MainHeader = styled.div`
 
   @media (max-width: ${BREAKPOINTS.laptop}) {
     border-top: 8px solid ${COLORS.gray[900]};
+    justify-content: space-between;
   }
 `;
 
@@ -56,6 +66,10 @@ const Nav = styled.nav`
   display: flex;
   gap: 48px;
   margin: 0px 48px;
+
+  @media (max-width: ${BREAKPOINTS.laptop}) {
+    display: none;
+  }
 `;
 
 const Side = styled.div`
@@ -71,6 +85,16 @@ const NavLink = styled.a`
 
   &:first-of-type {
     color: ${COLORS.secondary};
+  }
+`;
+
+const MobileNav = styled.nav`
+  display: none;
+  gap: 32px;
+  margin: 0px 32px;
+
+  @media (max-width: ${BREAKPOINTS.laptop}) {
+    display: flex;
   }
 `;
 
