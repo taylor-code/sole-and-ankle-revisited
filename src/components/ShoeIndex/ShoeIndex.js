@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { WEIGHTS } from '../../constants';
+import { BREAKPOINTS, WEIGHTS } from '../../constants';
 
-import Breadcrumbs from '../Breadcrumbs';
 import Select from '../Select';
 import Spacer from '../Spacer';
 import ShoeSidebar from '../ShoeSidebar';
 import ShoeGrid from '../ShoeGrid';
+import { ShoeBreadcrumbs } from './ShoeBreadcrumbs';
 
 const ShoeIndex = ({ sortId, setSortId }) => {
   return (
@@ -27,17 +27,14 @@ const ShoeIndex = ({ sortId, setSortId }) => {
         <Spacer size={32} />
         <ShoeGrid />
       </MainColumn>
-      <LeftColumn>
-        <Breadcrumbs>
-          <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
-          <Breadcrumbs.Crumb href="/sale">Sale</Breadcrumbs.Crumb>
-          <Breadcrumbs.Crumb href="/sale/shoes">
-            Shoes
-          </Breadcrumbs.Crumb>
-        </Breadcrumbs>
+      <DesktopSidebar>
+        <ShoeBreadcrumbs />
         <Spacer size={42} />
         <ShoeSidebar />
-      </LeftColumn>
+      </DesktopSidebar>
+      <MobileSidebar>
+        <ShoeBreadcrumbs />
+      </MobileSidebar>
     </Wrapper>
   );
 };
@@ -47,14 +44,31 @@ const Wrapper = styled.div`
   flex-direction: row-reverse;
   align-items: baseline;
   gap: 32px;
-`;
 
-const LeftColumn = styled.div`
-  flex-basis: 248px;
+  @media (max-width: ${BREAKPOINTS.tablet}) {
+    flex-direction: column-reverse;
+    gap: 0;
+  }
 `;
 
 const MainColumn = styled.div`
   flex: 1;
+`;
+
+const DesktopSidebar = styled.div`
+  flex-basis: 248px;
+
+  @media (max-width: ${BREAKPOINTS.tablet}) {
+    display: none;
+  }
+`;
+
+const MobileSidebar = styled.div`
+  display: none;
+
+  @media (max-width: ${BREAKPOINTS.tablet}) {
+    display: flex;
+  }
 `;
 
 const Header = styled.header`
