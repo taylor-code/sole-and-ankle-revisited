@@ -53,7 +53,12 @@ const MainHeader = styled.div`
 
   @media (max-width: ${BREAKPOINTS.laptop}) {
     border-top: 8px solid ${COLORS.gray[900]};
+    gap: 32px;
     justify-content: space-between;
+  }
+
+  @media (max-width: ${BREAKPOINTS.mobile}) {
+    padding: 16px;
   }
 `;
 
@@ -82,10 +87,13 @@ const NavLink = styled.a`
 const MobileNav = styled.nav`
   display: none;
   gap: 32px;
-  margin: 0px 32px;
 
   @media (max-width: ${BREAKPOINTS.laptop}) {
     display: flex;
+  }
+
+  @media (max-width: ${BREAKPOINTS.mobile}) {
+    gap: 24px;
   }
 `;
 
