@@ -11,18 +11,13 @@ import UnstyledButton from '../UnstyledButton';
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
 
-  // For our mobile hamburger menu, we'll want to use a button
-  // with an onClick handler, something like this:
-  //
-  // <button onClick={() => setShowMobileMenu(true)}>
-
   return (
     <header>
       <SuperHeader />
       <MainHeader>
-        <Side>
+        <LogoWrapper>
           <Logo />
-        </Side>
+        </LogoWrapper>
         <MobileNav>
           <Icon id="shopping-bag" />
           <Icon id="search" />
@@ -38,7 +33,7 @@ const Header = () => {
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
-        <Side />
+        <Filler />
       </MainHeader>
 
       <MobileMenu
@@ -72,10 +67,6 @@ const Nav = styled.nav`
   }
 `;
 
-const Side = styled.div`
-  flex: 1;
-`;
-
 const NavLink = styled.a`
   font-size: 1.125rem;
   text-transform: uppercase;
@@ -95,6 +86,22 @@ const MobileNav = styled.nav`
 
   @media (max-width: ${BREAKPOINTS.laptop}) {
     display: flex;
+  }
+`;
+
+const LogoWrapper = styled.div`
+  flex: 1;
+
+  @media (max-width: ${BREAKPOINTS.laptop}) {
+    flex: revert;
+  }
+`;
+
+const Filler = styled.div`
+  flex: 1;
+
+  @media (max-width: ${BREAKPOINTS.laptop}) {
+    display: none;
   }
 `;
 
