@@ -8,7 +8,8 @@ export const COLORS = {
     900: 'hsl(220deg 3% 20%)'
   },
   primary: 'hsl(340deg 65% 47%)',
-  secondary: 'hsl(240deg 60% 63%)'
+  secondary: 'hsl(240deg 60% 63%)',
+  transparentGray: 'hsl(220deg 5% 40% / 0.8)'
 };
 
 export const WEIGHTS = {

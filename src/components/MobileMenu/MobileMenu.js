@@ -6,30 +6,96 @@ import { DialogOverlay, DialogContent } from '@reach/dialog';
 import UnstyledButton from '../UnstyledButton';
 import Icon from '../Icon';
 import VisuallyHidden from '../VisuallyHidden';
+import { COLORS, WEIGHTS } from '../../constants';
+
+const Overlay = styled(DialogOverlay)`
+  bottom: 0;
+  background: ${COLORS.transparentGray};
+  display: flex;
+  justify-content: flex-end;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+`;
+
+const Content = styled(DialogContent)`
+  background: white;
+  flex-direction: column;
+  display: flex;
+  height: 100%;
+  padding: 32px;
+  width: 300px;
+`;
+
+const CloseButton = styled(UnstyledButton)`
+  right: 0;
+  padding: 16px;
+  position: absolute;
+  top: 10px;
+`;
+
+const Nav = styled.nav`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`;
+
+const NavLink = styled.a`
+  color: ${COLORS.gray[900]};
+  font-weight: ${WEIGHTS.medium};
+  font-size: 1.125rem;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:first-of-type {
+    color: ${COLORS.secondary};
+  }
+`;
+
+const Filler = styled.div`
+  flex: 1;
+`;
+
+const Footer = styled.footer`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: flex-end;
+`;
+
+const FooterLink = styled.a`
+  color: ${COLORS.gray[700]};
+  font-size: 0.8rem;
+  text-decoration: none;
+`;
 
 const MobileMenu = ({ isOpen, onDismiss }) => {
-  if (!isOpen) {
-    return null;
-  }
-
-  return (
-    <div>
-      <button onClick={onDismiss}>Dismiss menu</button>
-      <nav>
-        <a href="/sale">Sale</a>
-        <a href="/new">New&nbsp;Releases</a>
-        <a href="/men">Men</a>
-        <a href="/women">Women</a>
-        <a href="/kids">Kids</a>
-        <a href="/collections">Collections</a>
-      </nav>
-      <footer>
-        <a href="/terms">Terms and Conditions</a>
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/contact">Contact Us</a>
-      </footer>
-    </div>
-  );
+  return isOpen ? (
+    <Overlay isOpen={isOpen} onDismiss={onDismiss}>
+      <Content aria-label="Menu">
+        <CloseButton onClick={onDismiss}>
+          <Icon id="close" />
+          <VisuallyHidden>Dismiss menu</VisuallyHidden>
+        </CloseButton>
+        <Filler />
+        <Nav>
+          <NavLink href="/sale">Sale</NavLink>
+          <NavLink href="/new">New&nbsp;Releases</NavLink>
+          <NavLink href="/men">Men</NavLink>
+          <NavLink href="/women">Women</NavLink>
+          <NavLink href="/kids">Kids</NavLink>
+          <NavLink href="/collections">Collections</NavLink>
+        </Nav>
+        <Footer>
+          <FooterLink href="/terms">Terms and Conditions</FooterLink>
+          <FooterLink href="/privacy">Privacy Policy</FooterLink>
+          <FooterLink href="/contact">Contact Us</FooterLink>
+        </Footer>
+      </Content>
+    </Overlay>
+  ) : null;
 };
 
 export default MobileMenu;
